@@ -2,6 +2,7 @@ provider "azurerm" {
   features {}
 }
 # Test commit for GitHub Actions
+# Test Terraform Workflow
 
 resource "azurerm_resource_group" "rg" {
   name     = "myResourceGroup"
