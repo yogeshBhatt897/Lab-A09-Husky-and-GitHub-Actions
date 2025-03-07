@@ -1,0 +1,53 @@
+name: Validate Terraform Code
+
+on:
+  pull_request:
+    branches:
+      - main
+      - master
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    name: Terraform Format and Validation
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.2.4
+
+      - name: Run Terraform Format Check
+        run: terraform fmt -check -recursive
+
+      - name: Run Terraform Validate
+        run: terraform validate
+
+      - name: Run TFLint
+        run: tflint
+  plan:
+    runs-on: ubuntu-latest
+    name: Terraform Plan
+    needs: validate
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.2.4
+
+      - name: Initialize Terraform
+        run: terraform init
+
+      - name: Generate Terraform Plan
+        run: terraform plan -out=tfplan
