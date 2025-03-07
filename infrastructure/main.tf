@@ -1,6 +1,7 @@
 provider "azurerm" {
   features {}
 }
+# Test commit for GitHub Actions
 
 resource "azurerm_resource_group" "rg" {
   name     = "myResourceGroup"
