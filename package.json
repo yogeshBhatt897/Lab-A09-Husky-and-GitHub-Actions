@@ -1,0 +1,24 @@
+{
+  "name": "lab-a09-husky-and-github-actions",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yogeshBhatt897/Lab-A09-Husky-and-GitHub-Actions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yogeshBhatt897/Lab-A09-Husky-and-GitHub-Actions/issues"
+  },
+  "homepage": "https://github.com/yogeshBhatt897/Lab-A09-Husky-and-GitHub-Actions#readme",
+  "description": "",
+  "devDependencies": {
+    "husky": "^8.0.0"
+  }
+}
